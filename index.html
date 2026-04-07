@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A professional Caesar Cipher encryption and decryption tool with a modern dark mode interface.">
+  <title>Caesar Cipher Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <main class="container">
+    <header class="header">
+      <div class="logo" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="url(#logoGrad)"/>
+          <path d="M10 18 L14 12 L22 12 L26 18 L22 24 L14 24 Z" stroke="#fff" stroke-width="1.8" fill="none"/>
+          <circle cx="18" cy="18" r="3" fill="#d946ef"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#d946ef"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div>
+        <h1 class="title">Caesar Cipher</h1>
+        <p class="subtitle">Classical encryption meets modern design</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <!-- Shift Control -->
+      <div class="shift-control">
+        <label for="shift-slider" class="shift-label">
+          Shift Value
+          <span class="shift-value" id="shift-display" aria-live="polite">3</span>
+        </label>
+        <input
+          type="range"
+          id="shift-slider"
+          min="1"
+          max="25"
+          value="3"
+          class="slider"
+          aria-label="Shift value from 1 to 25"
+        >
+        <div class="slider-labels">
+          <span>1</span>
+          <span>25</span>
+        </div>
+      </div>
+
+      <!-- Text Areas -->
+      <div class="textareas">
+        <div class="textarea-group">
+          <label for="input-text" class="textarea-label">Input Text</label>
+          <textarea
+            id="input-text"
+            class="textarea"
+            rows="6"
+            placeholder="Enter your message here..."
+            aria-label="Input text to encrypt or decrypt"
+            spellcheck="false"
+          ></textarea>
+          <span class="char-count" id="input-count" aria-live="polite">0 characters</span>
+        </div>
+
+        <div class="textarea-group">
+          <label for="output-text" class="textarea-label">Output Text</label>
+          <textarea
+            id="output-text"
+            class="textarea output"
+            rows="6"
+            readonly
+            placeholder="Result will appear here..."
+            aria-label="Encrypted or decrypted output text"
+            spellcheck="false"
+          ></textarea>
+          <span class="char-count" id="output-count" aria-live="polite">0 characters</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button id="btn-encrypt" class="btn btn-primary" aria-label="Encrypt the input text">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 7V5a3 3 0 1 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Encrypt
+        </button>
+        <button id="btn-decrypt" class="btn btn-secondary" aria-label="Decrypt the input text">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 7V5a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Decrypt
+        </button>
+        <button id="btn-copy" class="btn btn-ghost" aria-label="Copy output to clipboard">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="5" y="5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 11V3.5A.5.5 0 0 1 3.5 3H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span id="copy-label">Copy</span>
+        </button>
+        <button id="btn-clear" class="btn btn-ghost" aria-label="Clear all text fields">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Clear
+        </button>
+      </div>
+
+      <!-- Keyboard Shortcuts Hint -->
+      <div class="shortcuts" aria-label="Keyboard shortcuts">
+        <span class="shortcut"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> Encrypt</span>
+        <span class="shortcut"><kbd>Esc</kbd> Clear</span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with precision by <a href="https://github.com/joemunene-by" target="_blank" rel="noopener noreferrer">Joe Munene</a></p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
